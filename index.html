@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nama Anda - Executive Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-navy: #1a2a3a;
+            --deep-teal: #005f60;
+            --gold-accent: #c49a37;
+            --light-grey-text: #e0e0e0;
+            --off-white: #f5f5f5;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Lato', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-navy);
+            color: var(--light-grey-text);
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            background-color: var(--deep-teal);
+            color: var(--off-white);
+            padding: 60px 0;
+            text-align: center;
+            border-bottom: 5px solid var(--gold-accent);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        header h1 {
+            font-family: var(--font-serif);
+            font-size: 3.5em;
+            margin: 0;
+            color: var(--off-white);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        header p {
+            font-size: 1.4em;
+            margin-top: 10px;
+            color: var(--light-grey-text);
+            font-weight: 300;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--gold-accent);
+            margin-top: 30px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        section {
+            padding: 60px 0;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-family: var(--font-serif);
+            font-size: 2.8em;
+            color: var(--gold-accent);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 3px;
+            background: var(--gold-accent);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .about-content, .experience-content, .contact-content {
+            text-align: left;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1em;
+            color: var(--light-grey-text);
+        }
+
+        .about-content p, .experience-item p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .experience-item {
+            background-color: var(--dark-navy);
+            border: 1px solid var(--deep-teal);
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-left: 5px solid var(--gold-accent);
+            transition: transform 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .experience-item h3 {
+            font-family: var(--font-serif);
+            color: var(--off-white);
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-size: 1.6em;
+        }
+
+        .experience-item h4 {
+            color: var(--light-grey-text);
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            font-weight: 400;
+        }
+
+        .experience-item ul {
+            list-style: none;
+            padding: 0;
+            margin-left: 0;
+            color: var(--light-grey-text);
+        }
+
+        .experience-item ul li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .experience-item ul li::before {
+            content: '•';
+            color: var(--gold-accent);
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        .contact-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-content a {
+            color: var(--gold-accent);
+            text-decoration: none;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .contact-content a:hover {
+            color: var(--off-white);
+            text-decoration: underline;
+        }
+
+        .contact-content i {
+            margin-right: 10px;
+            font-size: 1.3em;
+            vertical-align: middle;
+        }
+
+        footer {
+            background-color: var(--deep-teal);
+            color: var(--light-grey-text);
+            text-align: center;
+            padding: 25px 0;
+            font-size: 0.9em;
+            border-top: 5px solid var(--gold-accent);
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+            header p {
+                font-size: 1.1em;
+            }
+            h2 {
+                font-size: 2em;
+            }
+            .container {
+                padding: 20px 15px;
+            }
+            section {
+                padding: 40px 0;
+            }
+            .about-content, .experience-content, .contact-content {
+                font-size: 1em;
+            }
+        }
+
+        /* --- Overlay & Video Locker Styles --- */
+        #locker-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Lebih transparan */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            backdrop-filter: blur(5px); /* Blur sedikit agar konten di belakangnya samar */
+            -webkit-backdrop-filter: blur(5px);
+            flex-direction: column;
+            padding: 20px;
+            box-sizing: border-box;
+            opacity: 1;
+            transition: opacity 1s ease-out;
+            pointer-events: auto; /* Pastikan overlay bisa menangkap interaksi awal */
+        }
+
+        #locker-overlay.hidden {
+            opacity: 0;
+            pointer-events: none; /* Nonaktifkan interaksi saat tersembunyi */
+        }
+
+        #locker-overlay h3 {
+            color: var(--gold-accent);
+            font-family: var(--font-serif);
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+
+        #youtube-player-container {
+            position: relative;
+            width: 90%;
+            max-width: 800px;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background-color: transparent; /* Latar belakang kontainer juga transparan */
+            border: 3px solid var(--gold-accent);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+        }
+
+        #youtube-player-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.7; /* Membuat video transparan (disesuaikan) */
+            filter: grayscale(30%); /* Efek grayscale sedikit */
+            pointer-events: none; /* Video iframe tidak bisa diinteraksi langsung */
+        }
+
+        #video-click-blocker {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            cursor: default;
+            background-color: transparent; /* Overlay pemblokir juga transparan */
+            pointer-events: auto; /* Ini yang memblokir semua interaksi klik/sentuh */
+        }
+
+        #loading-message {
+            color: var(--light-grey-text);
+            margin-top: 20px;
+            font-size: 1.1em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* Untuk memastikan konten di belakang overlay tidak bisa discroll */
+        body.locked {
+            overflow: hidden;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="locked">
+    <div id="locker-overlay">
+        <h3>Untuk Mengakses Portofolio, Silakan Tonton Video Ini Sampai Selesai.</h3>
+        <p id="loading-message">Video ini otomatis diputar dalam mode senyap. Harap tonton hingga selesai.</p>
+        <div id="youtube-player-container">
+            <div id="player"></div> <div id="video-click-blocker"></div> </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <img src="https://via.placeholder.com/150/c49a37/1a2a3a?text=Your+Photo" alt="Foto Profil Anda" class="profile-img">
+            <h1>[Nama Lengkap Anda]</h1>
+            <p>Visionary Leader & Strategic Advisor</p>
+        </div>
+    </header>
+
+    <main>
+        ---
+        <section id="about" class="container">
+            <h2>Tentang Saya</h2>
+            <div class="about-content">
+                <p>Sebagai seorang pebisnis senior dengan pengalaman lebih dari **[Jumlah] tahun** dalam memimpin transformasi dan mendorong pertumbuhan signifikan di berbagai sektor, saya berdedikasi untuk menciptakan nilai jangka panjang dan inovasi berkelanjutan. Saya memiliki rekam jejak yang solid dalam **mengembangkan strategi korporat, memimpin tim multinasional, dan mengoptimalkan kinerja operasional** untuk mencapai keunggulan kompetitif.</p>
+                <p>Fokus saya adalah pada **kepemimpinan transformasional** yang memberdayakan tim, serta kemampuan untuk mengidentifikasi dan menavigasi peluang pasar yang kompleks. Saya berkomitmen untuk memberikan dampak nyata melalui pengambilan keputusan yang strategis dan visi yang jauh ke depan.</p>
+            </div>
+        </section>
+
+        ---
+        <section id="experience" class="container">
+            <h2>Pengalaman Profesional</h2>
+            <div class="experience-content">
+                <div class="experience-item">
+                    <h3>CEO & Managing Director</h3>
+                    <h4>[Nama Perusahaan Terakhir], [Kota, Negara] | [Tahun Mulai] - [Tahun Selesai/Sekarang]</h4>
+                    <ul>
+                        <li>Berhasil **meningkatkan pendapatan sebesar [XX]%** dan profitabilitas sebesar [YY]% dalam [Jumlah] tahun melalui strategi restrukturisasi dan ekspansi pasar.</li>
+                        <li>Memimpin tim eksekutif yang terdiri dari [Jumlah] orang dan mengelola operasi global di [Jumlah] negara.</li>
+                        <li>Menginisiasi dan mengawasi implementasi proyek transformasi digital senilai [Jumlah] juta/miliar, meningkatkan efisiensi operasional secara signifikan.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Chief Strategy Officer (CSO)</h3>
+                    <h4>[Nama Perusahaan Sebelumnya], [Kota, Negara] | [Tahun Mulai] - [Tahun Selesai]</h4>
+                    <ul>
+                        <li>Merumuskan dan mengimplementasikan strategi pertumbuhan korporat yang menghasilkan **akuisisi [Jumlah] perusahaan** kunci, memperluas portofolio bisnis.</li>
+                        <li>Melakukan analisis pasar mendalam dan mengidentifikasi peluang disruptif, yang menghasilkan pengembangan [Jumlah] lini produk/layanan baru.</li>
+                        <li>Membangun kemitraan strategis dengan [Jumlah] institusi global, membuka akses ke pasar baru dan teknologi inovatif.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        ---
+        <section id="contact" class="container">
+            <h2>Hubungi Saya</h2>
+            <p>Mari terhubung dan berdiskusi bagaimana pengalaman dan visi saya dapat berkontribusi pada tujuan strategis Anda.</p>
+            <div class="contact-content">
+                <a href="mailto:nama.anda@email.com"><i class="fas fa-envelope"></i> nama.anda@email.com</a>
+                <a href="https://www.linkedin.com/in/namaanda" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/namaanda</a>
+                </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 [Nama Lengkap Anda]. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="locker_script.js" async defer></script>
+</body>
+</html>
