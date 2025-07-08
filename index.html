@@ -3,254 +3,335 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nama Anda - Executive Profile</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Nama Anda - Futurist Executive Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600;700&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --dark-navy: #1a2a3a;
-            --deep-teal: #005f60;
-            --gold-accent: #c49a37;
-            --light-grey-text: #e0e0e0;
-            --off-white: #f5f5f5;
-            --font-serif: 'Playfair Display', serif;
-            --font-sans: 'Lato', sans-serif;
+            --dark-space: #0d1a26; /* Very Dark Blue */
+            --deep-midnight: #182a3a; /* Slightly Lighter Dark Blue */
+            --neon-blue: #00e0ff; /* Bright Blue/Cyan for accent */
+            --electric-purple: #9b59b6; /* Secondary accent */
+            --light-galaxy: #e0e6e9; /* Light grey for text */
+            --font-display: 'Orbitron', sans-serif; /* For headings and prominent text */
+            --font-body: 'Oxanium', monospace; /* For body and code-like feel */
         }
 
         body {
-            font-family: var(--font-sans);
+            font-family: var(--font-body);
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: var(--dark-navy);
-            color: var(--light-grey-text);
+            background-color: var(--dark-space);
+            color: var(--light-galaxy);
             scroll-behavior: smooth;
+            overflow-x: hidden; /* Prevent horizontal scroll from subtle effects */
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px; /* Slightly wider for a grander feel */
             margin: 0 auto;
             padding: 40px 20px;
         }
 
-        header {
-            background-color: var(--deep-teal);
-            color: var(--off-white);
-            padding: 60px 0;
-            text-align: center;
-            border-bottom: 5px solid var(--gold-accent);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        /* --- Global Effects (Futuristic) --- */
+        .section-separator {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--neon-blue), transparent);
+            margin: 80px 0;
+            opacity: 0.3;
+            animation: pulse-separator 3s infinite alternate;
         }
 
-        header h1 {
-            font-family: var(--font-serif);
-            font-size: 3.5em;
-            margin: 0;
-            color: var(--off-white);
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-        }
-
-        header p {
-            font-size: 1.4em;
-            margin-top: 10px;
-            color: var(--light-grey-text);
-            font-weight: 300;
-        }
-
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--gold-accent);
-            margin-top: 30px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-        }
-
-        section {
-            padding: 60px 0;
-            text-align: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        section:last-of-type {
-            border-bottom: none;
+        @keyframes pulse-separator {
+            from { opacity: 0.1; }
+            to { opacity: 0.5; }
         }
 
         h2 {
-            font-family: var(--font-serif);
-            font-size: 2.8em;
-            color: var(--gold-accent);
-            margin-bottom: 30px;
+            font-family: var(--font-display);
+            font-size: 3em;
+            color: var(--neon-blue);
+            text-align: center;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
             position: relative;
+            animation: text-glow 2s infinite alternate;
         }
 
         h2::after {
             content: '';
             display: block;
-            width: 70px;
-            height: 3px;
-            background: var(--gold-accent);
-            margin: 15px auto 0;
+            width: 120px;
+            height: 4px;
+            background: var(--electric-purple);
+            margin: 20px auto 0;
             border-radius: 2px;
+            box-shadow: 0 0 10px var(--electric-purple);
         }
 
-        .about-content, .experience-content, .contact-content {
+        @keyframes text-glow {
+            from { text-shadow: 0 0 5px var(--neon-blue); }
+            to { text-shadow: 0 0 15px var(--neon-blue), 0 0 25px var(--neon-blue); }
+        }
+
+        /* --- Header (Hero Section) --- */
+        header {
+            background: linear-gradient(to bottom, var(--deep-midnight), var(--dark-space));
+            color: var(--light-galaxy);
+            padding: 100px 0;
+            text-align: center;
+            border-bottom: 3px solid var(--neon-blue);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before { /* Subtle background grid/pattern */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(to right, rgba(0,224,255,0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0,224,255,0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 0;
+        }
+
+        header .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1 {
+            font-family: var(--font-display);
+            font-size: 4.5em; /* Larger, impactful */
+            margin: 0;
+            color: var(--neon-blue);
+            text-shadow: 0 0 20px var(--neon-blue);
+            letter-spacing: 5px;
+            animation: header-text-in 1.5s ease-out forwards;
+        }
+
+        header p {
+            font-size: 1.8em; /* Larger tagline */
+            margin-top: 15px;
+            color: var(--light-galaxy);
+            font-weight: 300;
+            animation: header-text-in 1.8s ease-out forwards;
+            opacity: 0; /* Initially hidden for animation */
+        }
+
+        @keyframes header-text-in {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profile-img {
+            width: 180px; /* Larger profile image */
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--electric-purple);
+            margin-top: 40px;
+            box-shadow: 0 0 25px rgba(155, 89, 182, 0.8); /* Purple glow */
+            animation: profile-glow 3s infinite alternate;
+        }
+
+        @keyframes profile-glow {
+            from { box-shadow: 0 0 15px rgba(155, 89, 182, 0.5); }
+            to { box-shadow: 0 0 30px rgba(155, 89, 182, 1); }
+        }
+
+        /* --- Section Styling --- */
+        section {
+            padding: 80px 0;
+            text-align: center;
+            background-color: var(--dark-space);
+            position: relative;
+            overflow: hidden;
+        }
+
+        section:nth-of-type(even) { /* Alternate background for visual separation */
+            background-color: var(--deep-midnight);
+        }
+
+        .content-block {
             text-align: left;
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 1.1em;
-            color: var(--light-grey-text);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            padding: 30px;
+            background-color: rgba(24, 42, 58, 0.7); /* --deep-midnight with transparency */
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 224, 255, 0.2); /* Neon blue subtle border */
         }
 
-        .about-content p, .experience-item p {
+        .content-block h3 {
+            font-family: var(--font-display);
+            color: var(--neon-blue);
+            font-size: 2em;
+            margin-top: 0;
             margin-bottom: 20px;
-            line-height: 1.8;
+            letter-spacing: 1.5px;
         }
 
-        .experience-item {
-            background-color: var(--dark-navy);
-            border: 1px solid var(--deep-teal);
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            border-left: 5px solid var(--gold-accent);
-            transition: transform 0.3s ease;
-        }
-
-        .experience-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .experience-item h3 {
-            font-family: var(--font-serif);
-            color: var(--off-white);
-            margin-top: 0;
-            margin-bottom: 5px;
-            font-size: 1.6em;
-        }
-
-        .experience-item h4 {
-            color: var(--light-grey-text);
-            margin-top: 0;
-            margin-bottom: 15px;
+        .content-block p {
             font-size: 1.1em;
-            font-weight: 400;
+            color: var(--light-galaxy);
+            margin-bottom: 15px;
+            line-height: 1.7;
         }
 
-        .experience-item ul {
+        .content-block ul {
             list-style: none;
             padding: 0;
             margin-left: 0;
-            color: var(--light-grey-text);
+            text-align: left;
+            color: var(--light-galaxy);
         }
 
-        .experience-item ul li {
-            margin-bottom: 8px;
+        .content-block ul li {
+            margin-bottom: 10px;
             position: relative;
-            padding-left: 20px;
+            padding-left: 30px;
+            font-size: 1em;
         }
 
-        .experience-item ul li::before {
-            content: '•';
-            color: var(--gold-accent);
+        .content-block ul li::before { /* Custom bullet point */
+            content: '>'; 
+            color: var(--electric-purple);
+            font-family: var(--font-display);
             position: absolute;
             left: 0;
             font-size: 1.2em;
             line-height: 1;
+            top: 2px;
+            text-shadow: 0 0 5px var(--electric-purple);
         }
 
-        .contact-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .content-block ul li strong {
+            color: var(--neon-blue);
+        }
+        
+        /* Specifics for Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .contact-content a {
-            color: var(--gold-accent);
-            text-decoration: none;
-            font-size: 1.2em;
+        .contact-item {
+            background-color: rgba(24, 42, 58, 0.7);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(155, 89, 182, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 224, 255, 0.4);
+        }
+
+        .contact-item i {
+            color: var(--neon-blue);
+            font-size: 2.8em;
             margin-bottom: 15px;
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        .contact-item p {
+            margin: 0;
+            color: var(--light-galaxy);
+            font-size: 1em;
+        }
+
+        .contact-item a {
+            color: var(--electric-purple);
+            text-decoration: none;
+            font-weight: 600;
             transition: color 0.3s ease;
         }
 
-        .contact-content a:hover {
-            color: var(--off-white);
-            text-decoration: underline;
+        .contact-item a:hover {
+            color: var(--neon-blue);
         }
 
-        .contact-content i {
-            margin-right: 10px;
-            font-size: 1.3em;
-            vertical-align: middle;
-        }
-
+        /* --- Footer --- */
         footer {
-            background-color: var(--deep-teal);
-            color: var(--light-grey-text);
+            background: linear-gradient(to top, var(--deep-midnight), var(--dark-space));
+            color: var(--light-galaxy);
             text-align: center;
-            padding: 25px 0;
+            padding: 30px 0;
             font-size: 0.9em;
-            border-top: 5px solid var(--gold-accent);
+            border-top: 3px solid var(--electric-purple);
             box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5em;
-            }
-            header p {
-                font-size: 1.1em;
-            }
-            h2 {
-                font-size: 2em;
-            }
-            .container {
-                padding: 20px 15px;
-            }
-            section {
-                padding: 40px 0;
-            }
-            .about-content, .experience-content, .contact-content {
-                font-size: 1em;
-            }
+        footer::before { /* Subtle background grid/pattern */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(to right, rgba(155,89,182,0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(155,89,182,0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 0;
+            transform: rotate(180deg); /* Flip for visual variation */
         }
 
-        /* --- Overlay & Video Locker Styles --- */
+        footer .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- Video Locker Overlay Styles --- */
         #locker-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Lebih transparan */
+            background-color: rgba(13, 26, 38, 0.9); /* Darker, slightly transparent */
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            backdrop-filter: blur(5px); /* Blur sedikit agar konten di belakangnya samar */
-            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             flex-direction: column;
             padding: 20px;
             box-sizing: border-box;
             opacity: 1;
             transition: opacity 1s ease-out;
-            pointer-events: auto; /* Pastikan overlay bisa menangkap interaksi awal */
+            pointer-events: auto;
         }
 
         #locker-overlay.hidden {
             opacity: 0;
-            pointer-events: none; /* Nonaktifkan interaksi saat tersembunyi */
+            pointer-events: none;
         }
 
         #locker-overlay h3 {
-            color: var(--gold-accent);
-            font-family: var(--font-serif);
-            font-size: 2em;
-            margin-bottom: 20px;
+            color: var(--neon-blue);
+            font-family: var(--font-display);
+            font-size: 2.2em;
+            margin-bottom: 25px;
             text-align: center;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+            text-shadow: 0 0 10px var(--neon-blue);
         }
 
         #youtube-player-container {
@@ -260,9 +341,9 @@
             padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            background-color: transparent; /* Latar belakang kontainer juga transparan */
-            border: 3px solid var(--gold-accent);
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+            background-color: var(--dark-space);
+            border: 3px solid var(--electric-purple);
+            box-shadow: 0 0 30px rgba(155, 89, 182, 0.8);
         }
 
         #youtube-player-container iframe {
@@ -271,9 +352,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            opacity: 0.7; /* Membuat video transparan (disesuaikan) */
-            filter: grayscale(30%); /* Efek grayscale sedikit */
-            pointer-events: none; /* Video iframe tidak bisa diinteraksi langsung */
+            opacity: 0.8; /* Slightly less transparent for better video visibility */
+            filter: grayscale(20%) brightness(0.8); /* Subtle futuristic effect */
+            pointer-events: none;
         }
 
         #video-click-blocker {
@@ -284,70 +365,136 @@
             height: 100%;
             z-index: 10;
             cursor: default;
-            background-color: transparent; /* Overlay pemblokir juga transparan */
-            pointer-events: auto; /* Ini yang memblokir semua interaksi klik/sentuh */
+            background-color: transparent;
+            pointer-events: auto;
         }
 
         #loading-message {
-            color: var(--light-grey-text);
-            margin-top: 20px;
-            font-size: 1.1em;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            color: var(--light-galaxy);
+            margin-top: 25px;
+            font-size: 1.2em;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
         }
 
-        /* Untuk memastikan konten di belakang overlay tidak bisa discroll */
-        body.locked {
-            overflow: hidden;
+        /* --- CTA Pop-up (Non-blocking) Styles --- */
+        #cta-popup {
+            position: fixed;
+            bottom: 30px; /* Slightly higher from bottom */
+            right: 30px; /* Slightly further from right */
+            background-color: rgba(24, 42, 58, 0.95); /* Deep midnight with higher opacity */
+            border: 2px solid var(--neon-blue); /* Neon blue border */
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            z-index: 9000;
+            display: flex;
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out, visibility 0.6s step-end;
+            pointer-events: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            max-width: 320px; /* Slightly wider */
+            text-align: center;
         }
 
-        /* --- CTA Buttons Styles --- */
-        #cta-buttons {
-            display: flex; /* Menggunakan flexbox untuk menata tombol */
-            gap: 20px; /* Jarak antar tombol */
-            margin-top: 30px;
-            opacity: 0; /* Sembunyikan secara default */
-            transition: opacity 0.5s ease-in-out;
-            pointer-events: none; /* Nonaktifkan interaksi saat tersembunyi */
-        }
-
-        #cta-buttons.visible {
+        #cta-popup.visible {
+            visibility: visible;
             opacity: 1;
-            pointer-events: auto; /* Aktifkan interaksi saat terlihat */
+            transform: translateY(0);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out, visibility 0.6s step-start;
+            pointer-events: auto;
         }
 
-        .cta-button {
-            background-color: var(--gold-accent);
-            color: var(--dark-navy);
-            padding: 15px 30px;
+        #cta-popup h4 {
+            color: var(--electric-purple); /* Electric purple for pop-up heading */
+            font-family: var(--font-display);
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+            letter-spacing: 1px;
+        }
+
+        #cta-popup p {
+            color: var(--light-galaxy);
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+
+        #cta-popup .cta-buttons-popup {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .cta-button-popup {
+            background-color: var(--neon-blue); /* Neon blue buttons */
+            color: var(--dark-space);
+            padding: 12px 20px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.2em;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            cursor: pointer; /* Menandakan bisa diklik */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }
 
-        .cta-button:hover {
-            background-color: #e6b84d; /* Warna sedikit lebih terang saat hover */
-            transform: translateY(-3px);
+        .cta-button-popup:hover {
+            background-color: #00aaff; /* Darker blue on hover */
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(0, 224, 255, 0.6); /* Stronger glow */
         }
 
-        .cta-button i {
-            font-size: 1.5em;
+        .cta-button-popup i {
+            font-size: 1.3em;
+            color: var(--dark-space);
         }
 
-        @media (max-width: 600px) {
-            #cta-buttons {
-                flex-direction: column; /* Tombol tumpuk ke bawah di layar kecil */
-                gap: 15px;
+        #cta-popup .close-button {
+            background: none;
+            border: none;
+            color: var(--light-galaxy);
+            font-size: 1.8em; /* Larger close button */
+            position: absolute;
+            top: 15px;
+            right: 18px;
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        #cta-popup .close-button:hover {
+            color: var(--neon-blue); /* Neon blue on hover */
+            transform: rotate(90deg);
+        }
+
+        @media (max-width: 768px) {
+            #cta-popup {
+                width: calc(100% - 60px); /* More padding from edges */
+                left: 30px;
+                right: 30px;
+                bottom: 20px;
+                padding: 20px;
             }
-            .cta-button {
-                width: 100%; /* Lebar penuh di layar kecil */
-                justify-content: center; /* Rata tengah teks dan ikon */
+            header h1 { font-size: 3em; }
+            header p { font-size: 1.3em; }
+            h2 { font-size: 2.2em; }
+            .profile-img { width: 140px; height: 140px; }
+            .content-block h3 { font-size: 1.7em; }
+            .content-block p { font-size: 1em; }
+        }
+
+        @media (max-width: 480px) {
+            #cta-popup {
+                width: calc(100% - 40px); /* Adjusted for smaller screens */
+                left: 20px;
+                right: 20px;
             }
         }
     </style>
@@ -355,80 +502,126 @@
 </head>
 <body class="locked">
     <div id="locker-overlay">
-        <h3>Untuk Mengakses Portofolio, Silakan Tonton Video Ini Sampai Selesai.</h3>
-        <p id="loading-message">Video ini otomatis diputar dalam mode senyap. Harap tonton hingga selesai.</p>
+        <h3>Akses Terenkripsi. Verifikasi Identitas Digital.</h3>
+        <p id="loading-message">Memuat protokol verifikasi. Harap tunggu...</p>
         <div id="youtube-player-container">
             <div id="player"></div> <div id="video-click-blocker"></div> </div>
-        <div id="cta-buttons">
-            <a href="https://www.youtube.com/@YouTubeCreators" target="_blank" class="cta-button" id="subscribe-button">
-                <i class="fab fa-youtube"></i> Subscribe Channel
-            </a>
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="cta-button" id="like-button">
-                <i class="fas fa-thumbs-up"></i> Like Video
-            </a>
+        <div id="cta-buttons" style="display: none;"> 
+            <a href="#" target="_blank" class="cta-button" id="subscribe-button"></a>
+            <a href="#" target="_blank" class="cta-button" id="like-button"></a>
         </div>
     </div>
 
     <header>
         <div class="container">
-            <img src="https://via.placeholder.com/150/c49a37/1a2a3a?text=Your+Photo" alt="Foto Profil Anda" class="profile-img">
+            <img src="https://via.placeholder.com/180/9b59b6/e0e6e9?text=YOUR+AVATAR" alt="Foto Profil Anda" class="profile-img">
             <h1>[Nama Lengkap Anda]</h1>
-            <p>Visionary Leader & Strategic Advisor</p>
+            <p>Visionary Architect of Tomorrow's Enterprises</p>
         </div>
     </header>
 
     <main>
-        ---
-        <section id="about" class="container">
-            <h2>Tentang Saya</h2>
-            <div class="about-content">
-                <p>Sebagai seorang pebisnis senior dengan pengalaman lebih dari **[Jumlah] tahun** dalam memimpin transformasi dan mendorong pertumbuhan signifikan di berbagai sektor, saya berdedikasi untuk menciptakan nilai jangka panjang dan inovasi berkelanjutan. Saya memiliki rekam jejak yang solid dalam **mengembangkan strategi korporat, memimpin tim multinasional, dan mengoptimalkan kinerja operasional** untuk mencapai keunggulan kompetitif.</p>
-                <p>Fokus saya adalah pada **kepemimpinan transformasional** yang memberdayakan tim, serta kemampuan untuk mengidentifikasi dan menavigasi peluang pasar yang kompleks. Saya berkomitmen untuk memberikan dampak nyata melalui pengambilan keputusan yang strategis dan visi yang jauh ke depan.</p>
-            </div>
-        </section>
+        <div class="section-separator"></div>
 
-        ---
-        <section id="experience" class="container">
-            <h2>Pengalaman Profesional</h2>
-            <div class="experience-content">
-                <div class="experience-item">
-                    <h3>CEO & Managing Director</h3>
-                    <h4>[Nama Perusahaan Terakhir], [Kota, Negara] | [Tahun Mulai] - [Tahun Selesai/Sekarang]</h4>
+        <section id="about">
+            <div class="container">
+                <h2>Tentang Saya</h2>
+                <div class="content-block">
+                    <h3>Transformasi di Era Digital</h3>
+                    <p>Sebagai seorang pebisnis senior dengan pengalaman lebih dari **[Jumlah] siklus inovasi** dalam memimpin dan mendorong pertumbuhan eksponensial di berbagai sektor strategis, saya berdedikasi untuk menciptakan nilai jangka panjang dan inovasi disruptif yang berkelanjutan. Rekam jejak saya meliputi:</p>
                     <ul>
-                        <li>Berhasil **meningkatkan pendapatan sebesar [XX]%** dan profitabilitas sebesar [YY]% dalam [Jumlah] tahun melalui strategi restrukturisasi dan ekspansi pasar.</li>
-                        <li>Memimpin tim eksekutif yang terdiri dari [Jumlah] orang dan mengelola operasi global di [Jumlah] negara.</li>
-                        <li>Menginisiasi dan mengawasi implementasi proyek transformasi digital senilai [Jumlah] juta/miliar, meningkatkan efisiensi operasional secara signifikan.</li>
+                        <li>**Kepemimpinan Visioner:** Memimpin inisiatif transformasi digital berskala besar, berhasil meningkatkan efisiensi operasional sebesar **[XX]%** dan kapabilitas adaptasi pasar.</li>
+                        <li>**Arsitek Pertumbuhan:** Merumuskan dan mengeksekusi strategi ekspansi pasar ke **[Jumlah] wilayah baru**, mengamankan pangsa pasar yang signifikan melalui aliansi strategis.</li>
+                        <li>**Optimalisasi Ekosistem:** Mengoptimalkan kinerja rantai nilai dan portofolio investasi, menghasilkan peningkatan ROI sebesar **[YY]%** dalam lingkungan pasar yang dinamis.</li>
                     </ul>
-                </div>
-
-                <div class="experience-item">
-                    <h3>Chief Strategy Officer (CSO)</h3>
-                    <h4>[Nama Perusahaan Sebelumnya], [Kota, Negara] | [Tahun Mulai] - [Tahun Selesai]</h4>
-                    <ul>
-                        <li>Merumuskan dan mengimplementasikan strategi pertumbuhan korporat yang menghasilkan **akuisisi [Jumlah] perusahaan** kunci, memperluas portofolio bisnis.</li>
-                        <li>Melakukan analisis pasar mendalam dan mengidentifikasi peluang disruptif, yang menghasilkan pengembangan [Jumlah] lini produk/layanan baru.</li>
-                        <li>Membangun kemitraan strategis dengan [Jumlah] institusi global, membuka akses ke pasar baru dan teknologi inovatif.</li>
-                    </ul>
+                    <p>Fokus saya adalah pada **kepemimpinan transhumanis** yang memberdayakan tim lintas batas, serta kemampuan untuk mengidentifikasi dan menavigasi peluang di persimpangan teknologi dan pasar global yang kompleks. Saya berkomitmen untuk memberikan dampak nyata melalui pengambilan keputusan berbasis data dan visi yang melampaui horizon saat ini.</p>
                 </div>
             </div>
         </section>
 
-        ---
-        <section id="contact" class="container">
-            <h2>Hubungi Saya</h2>
-            <p>Mari terhubung dan berdiskusi bagaimana pengalaman dan visi saya dapat berkontribusi pada tujuan strategis Anda.</p>
-            <div class="contact-content">
-                <a href="mailto:nama.anda@email.com"><i class="fas fa-envelope"></i> nama.anda@email.com</a>
-                <a href="https://www.linkedin.com/in/namaanda" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/namaanda</a>
+        <div class="section-separator"></div>
+
+        <section id="experience">
+            <div class="container">
+                <h2>Kronik Eksekutif</h2>
+                <div class="content-block">
+                    <h3>Direktur Jenderal Transformasi (DXO)</h3>
+                    <h4>[Nama Korporasi Global], [Galaksi/Bumi - Lokasi] | [Siklus Awal] - [Siklus Akhir/Sekarang]</h4>
+                    <p>Memimpin divisi transformasi digital dan inovasi, bertanggung jawab atas [Sebutkan dampak kunci dengan angka/persentase, contoh: integrasi AI-driven, pengembangan infrastruktur kuantum].</p>
+                    <ul>
+                        <li>Mengelola anggaran pengembangan [Jumlah] Unit Kredit Global.</li>
+                        <li>Mengembangkan tim interdisipliner yang meraih [Nama Penghargaan Inovasi].</li>
+                        <li>Mengimplementasikan Metodologi Agile-Quantum untuk mempercepat siklus produk.</li>
+                    </ul>
                 </div>
+                <div class="content-block">
+                    <h3>Kepala Strategi & Akuisisi (CSAO)</h3>
+                    <h4>[Entitas Konsorsium], [Sektor/Planet] | [Siklus Awal] - [Siklus Akhir]</h4>
+                    <p>Merumuskan strategi pertumbuhan anorganik dan integrasi lintas-sektor. Berhasil [Sebutkan dampak kunci, contoh: mengakuisisi 3 startup disruptif, memperluas jangkauan ke sektor energi terbarukan].</p>
+                    <ul>
+                        <li>Membangun aliansi strategis dengan [Jumlah] entitas riset terkemuka.</li>
+                        <li>Melakukan analisis skenario prediktif untuk investasi masa depan.</li>
+                        <li>Memimpin negosiasi untuk kemitraan lintas-galaksi.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-separator"></div>
+
+        <section id="vision">
+            <div class="container">
+                <h2>Manifesto Visi</h2>
+                <div class="content-block">
+                    <p>Visi saya melampaui batas-batas konvensional. Saya percaya bahwa kepemimpinan sejati di era post-digital adalah tentang membangun jembatan antara potensi manusia dan kemajuan teknologi yang tak terbatas. Saya berdedikasi untuk mendorong ekosistem bisnis yang tidak hanya menguntungkan secara finansial, tetapi juga bertanggung jawab secara etis dan berkelanjutan di skala planet dan di luar itu.</p>
+                    <p>Filosofi saya berakar pada prinsip adaptasi tanpa henti, inovasi yang berani, dan pembangunan jaringan kolaboratif yang resilien. Mari bersama-sama membangun arsitektur masa depan yang memberdayakan manusia dan mendorong kemajuan peradaban.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-separator"></div>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Transmisi Kontak</h2>
+                <p>Siap untuk berkolaborasi dalam proyek-proyek yang mengubah masa depan? Mari berdiskusi tentang bagaimana visi dan pengalaman saya dapat diselaraskan dengan misi Anda.</p>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope-open-text"></i>
+                        <p>Kanal Komunikasi: <a href="mailto:nama.anda@futuristik.com">nama.anda@futuristik.com</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <p>Jejaring Profesional: <a href="https://www.linkedin.com/in/namaanda" target="_blank">linkedin.com/in/namaanda</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-volume"></i>
+                        <p>Saluran Suara: <a href="tel:+6281234567890">[Nomor Telepon Anda]</a></p>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>© 2025 [Nama Lengkap Anda]. All Rights Reserved.</p>
+            <p>Konstruksi Digital © 2025 [Nama Lengkap Anda]. Semua Hak Digital Dilindungi.</p>
         </div>
     </footer>
+
+    <div id="cta-popup">
+        <button class="close-button" id="close-cta-popup">×</button>
+        <h4>Suka dengan Protokol Ini?</h4>
+        <p>Jika video ini membantu memvisualisasikan, pertimbangkan untuk mendukung channel YouTube saya!</p>
+        <div class="cta-buttons-popup">
+            <a href="https://www.youtube.com/@YouTubeCreators" target="_blank" class="cta-button-popup">
+                <i class="fab fa-youtube"></i> Subscribe Channel
+            </a>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="cta-button-popup">
+                <i class="fas fa-thumbs-up"></i> Like Video
+            </a>
+        </div>
+    </div>
 
     <script src="locker_script.js" async defer></script>
 </body>
