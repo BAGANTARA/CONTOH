@@ -217,7 +217,7 @@
             }
         }
 
-        /* --- Video Locker Overlay Styles (initial lock screen) --- */
+        /* --- Overlay & Video Locker Styles --- */
         #locker-overlay {
             position: fixed;
             top: 0;
@@ -295,105 +295,9 @@
             text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
-        /* --- CTA Pop-up (Non-blocking) Styles --- */
-        #cta-popup {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: rgba(0, 95, 96, 0.9); /* --deep-teal dengan transparansi */
-            border: 2px solid var(--gold-accent);
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-            z-index: 9000; /* Di atas konten utama tapi di bawah locker-overlay */
-            display: none; /* Sembunyikan secara default */
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            max-width: 300px;
-            text-align: center;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-            pointer-events: none; /* Nonaktifkan interaksi saat tersembunyi */
-        }
-
-        #cta-popup.visible {
-            display: flex;
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto; /* Aktifkan interaksi saat terlihat */
-        }
-
-        #cta-popup h4 {
-            color: var(--off-white);
-            font-family: var(--font-serif);
-            margin-top: 0;
-            margin-bottom: 5px;
-            font-size: 1.3em;
-        }
-
-        #cta-popup p {
-            color: var(--light-grey-text);
-            font-size: 0.95em;
-            margin-bottom: 10px;
-        }
-
-        #cta-popup .cta-buttons-popup {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            width: 100%;
-        }
-
-        #cta-popup .cta-button-popup {
-            background-color: var(--gold-accent);
-            color: var(--dark-navy);
-            padding: 10px 15px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1em;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        #cta-popup .cta-button-popup:hover {
-            background-color: #e6b84d;
-            transform: translateY(-2px);
-        }
-
-        #cta-popup .cta-button-popup i {
-            font-size: 1.2em;
-        }
-
-        #cta-popup .close-button {
-            background: none;
-            border: none;
-            color: var(--light-grey-text);
-            font-size: 1.5em;
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        #cta-popup .close-button:hover {
-            color: var(--off-white);
-        }
-
-        @media (max-width: 768px) {
-            #cta-popup {
-                width: calc(100% - 40px);
-                left: 20px;
-                right: 20px;
-                bottom: 10px;
-            }
+        /* Untuk memastikan konten di belakang overlay tidak bisa discroll */
+        body.locked {
+            overflow: hidden;
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -404,14 +308,6 @@
         <p id="loading-message">Video ini otomatis diputar dalam mode senyap. Harap tonton hingga selesai.</p>
         <div id="youtube-player-container">
             <div id="player"></div> <div id="video-click-blocker"></div> </div>
-        <div id="cta-buttons" style="display: none;"> 
-            <a href="https://www.youtube.com/@YouTubeCreators" target="_blank" class="cta-button" id="subscribe-button">
-                <i class="fab fa-youtube"></i> Subscribe Channel
-            </a>
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="cta-button" id="like-button">
-                <i class="fas fa-thumbs-up"></i> Like Video
-            </a>
-        </div>
     </div>
 
     <header>
@@ -474,20 +370,6 @@
             <p>© 2025 [Nama Lengkap Anda]. All Rights Reserved.</p>
         </div>
     </footer>
-
-    <div id="cta-popup">
-        <button class="close-button" id="close-cta-popup">×</button>
-        <h4>Suka dengan Kontennya?</h4>
-        <p>Jika video ini bermanfaat, pertimbangkan untuk mendukung channel YouTube saya!</p>
-        <div class="cta-buttons-popup">
-            <a href="https://www.youtube.com/@YouTubeCreators" target="_blank" class="cta-button-popup">
-                <i class="fab fa-youtube"></i> Subscribe Channel
-            </a>
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="cta-button-popup">
-                <i class="fas fa-thumbs-up"></i> Like Video
-            </a>
-        </div>
-    </div>
 
     <script src="locker_script.js" async defer></script>
 </body>
