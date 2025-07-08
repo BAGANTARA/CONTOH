@@ -306,22 +306,21 @@
             padding: 20px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
             z-index: 9000; /* Di atas konten utama tapi di bawah locker-overlay */
-            display: none; /* Sembunyikan secara default */
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            max-width: 300px;
-            text-align: center;
-            opacity: 0;
+            /* >>> START KOREKSI CSS UNTUK VISIBILITAS POP-UP <<< */
+            display: flex; /* Selalu flex, tapi awalnya tidak terlihat */
+            visibility: hidden; /* Sembunyikan secara default dengan visibility */
+            opacity: 0; /* Opacity 0 untuk transisi fade */
             transform: translateY(20px);
-            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out, visibility 0.5s step-end; /* Transisi untuk fade dan geser */
             pointer-events: none; /* Nonaktifkan interaksi saat tersembunyi */
+            /* >>> END KOREKSI CSS UNTUK VISIBILITAS POP-UP <<< */
         }
 
         #cta-popup.visible {
-            display: flex;
+            visibility: visible; /* Buat terlihat */
             opacity: 1;
             transform: translateY(0);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out, visibility 0.5s step-start; /* Transisi untuk fade dan geser */
             pointer-events: auto; /* Aktifkan interaksi saat terlihat */
         }
 
